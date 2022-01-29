@@ -47,16 +47,16 @@ function bootstrap() {
 	// Start up the WP testing environment.
 	require $wp_develop_dir . '/tests/phpunit/includes/bootstrap.php';
 	require_once dirname( __FILE__ ) . '/phpunit/Base_Test.php';
+
+	// Switch to your custom theme root.
+	switch_theme( get_current_theme_root() );
 }
 
 /**
- * Manually load the theme and necessary plugins.
+ * Manually load any necessary plugins.
  */
 function manually_load() {
-
-	$includes = [
-		// get_current_theme_root() . '/functions.php',
-	];
+	$includes = []; // Manually load other plugin files here.
 
 	foreach ( $includes as $file ) {
 
@@ -74,21 +74,15 @@ function manually_load() {
 }
 
 /**
- * Gets the current install root.
- *
- * @return string
- */
-function get_install_root() {
-	return dirname( dirname( dirname( __FILE__ ) ) );
-}
-
-/**
  * Gets the theme root.
  *
  * @return string
  */
 function get_current_theme_root() {
-	$root = get_install_root();
+	$root = dirname( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) );
+
+	$root = $root . '/themes/custom-theme'; // Put your custom theme name here.
+
 	return $root;
 }
 

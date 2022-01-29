@@ -31,6 +31,17 @@ class Base_Test extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Setup everything at the start of all tests.
+	 *
+	 * @return void
+	 */
+	public function setUp() {
+		parent::setUp();
+		$this->set_permalink_structure( '/%year%/%monthnum%/%postname%/' );
+		$this->delete_all_test_data();
+	}
+
+	/**
 	 * Set current user to an admin.
 	 *
 	 * @return int The admin user ID.

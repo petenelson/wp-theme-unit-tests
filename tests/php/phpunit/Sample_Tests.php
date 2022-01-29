@@ -21,7 +21,8 @@ class Sample_Tests extends Base_Test {
 
 		$this->assertTrue( true );
 
+		$hello_world = \MyCustomTheme\get_hello_world();
 
-
+		$this->assertSame( 'Hello World', $hello_world );
 	}
 }
