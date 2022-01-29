@@ -2,5 +2,7 @@
     "name": "petenelson/wp-theme-unit-tests",
     "description": "WordPress PHP unit tests framework for themes",
     "type": "wordpress-plugin",
-    "require": {}
+    "require-dev": {
+        "yoast/phpunit-polyfills": "^1.0"
+    }
 }
